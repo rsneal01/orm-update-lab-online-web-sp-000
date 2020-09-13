@@ -66,6 +66,12 @@ class Student
   end
   
   def self.all
+    new_student = self.new  
+    new_student.id = row[0]
+    new_student.name =  row[1]
+    new_student.length = row[2]
+    new_student  
+    
     sql = <<-SQL
       SELECT *
       FROM songs
