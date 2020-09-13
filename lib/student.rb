@@ -63,11 +63,11 @@ class Student
     SQL
  
     DB[:conn].execute(sql).map do |row|
-      self.new_from_db(row)
+      self.new(row)
     end
   end
   
-  def self.new_student_from_db
+  def self.new(row)
     new_student = self.new  
     new_student.id = row[0]
     new_student.name =  row[1]
