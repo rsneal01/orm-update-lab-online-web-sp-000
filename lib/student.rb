@@ -59,7 +59,7 @@ class Student
   def self.new_from_db(row)
      sql = <<-SQL
       SELECT *
-      FROM songs
+      FROM students
     SQL
  
     DB[:conn].execute(sql).map do |row|
