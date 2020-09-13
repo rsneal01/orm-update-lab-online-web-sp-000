@@ -57,10 +57,6 @@ class Student
   end
   
   def self.new_from_db(row)
-    sql = <<-SQL
-      SELECT *
-      FROM songs
-    SQL
     
     new_student = self.new  
     new_student.id = row[0]
@@ -69,6 +65,14 @@ class Student
     new_student  
   end
   
-  
+  def self.all
+    sql = <<-SQL
+      SELECT *
+      FROM songs
+    SQL
+ 
+    DB[:conn].execute(sql).map do |row|
+      self.new_from_db(row)
+    end
   
 end
