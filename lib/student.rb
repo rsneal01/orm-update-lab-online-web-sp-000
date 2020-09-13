@@ -57,8 +57,11 @@ class Student
   end
   
   def self.new_from_db(row)
-    sql = "SELECT * FROM students WHERE name = ?"
-    
+    new_student = self.new  # self.new is the same as running Song.new
+    new_student.id = row[0]
+    new_student.name =  row[1]
+    new_student.length = row[2]
+    new_student  # return the newly created instance
   end
   
 end
